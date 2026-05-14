@@ -28,6 +28,23 @@ NXHEX is a save editor built with **Avalonia UI**. It lets you easily modify eve
 ![Editing storage](Screenshots/Edit-Storage.png)
 ![Editing player](Screenshots/Edit-Player.png)
 
+### 🎮 Want a Save Editor for Another Game?
+
+NXHEX is currently focused on **Nexomon: Extinction**, but I'm open to developing save editors for other single-player games.
+
+**How to suggest a game:**
+- Open an **Issue** on this GitHub repository, or
+- Send an email to **secreator758@gmail.com**  
+  - Subject: Name of the game  
+  - Body: Game details (platform, link to Steam/Epic page, whether saves are local, etc.)
+
+**Important notes:**
+- Priority will be given to the most requested and interesting games.
+- If the game is paid, you will need to provide a game key/copy **if I accept** to work on it.
+- I'm also open to compensations via https://ko-fi.com/snowman758/donate .
+
+I'm looking forward to your suggestions!
+
 ### Compatibility
 NXHEX works with the latest version of Nexomon: Extinction.
 
@@ -50,5 +67,17 @@ Your save files are located here:
 
 ### Warning
 **Always make a backup** of your save file before editing!
+
+### ☕ Support the Project
+
+If NXHEX has saved you time or helped you enjoy Nexomon: Extinction even more, consider supporting its development!
+
+**Every donation is highly appreciated and helps me continue updating the editor and working on new features.**
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/snowman758)
+
+**Direct link:** [https://ko-fi.com/snowman758](https://ko-fi.com/snowman758)
+
+**Thank you so much** to everyone who supports the project ❤️
 
 **Built with Avalonia**
