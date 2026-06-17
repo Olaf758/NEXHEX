@@ -18,7 +18,7 @@ NXHEX is a save editor built with **Avalonia UI**. It lets you easily modify eve
 **More complete than the old Synthlight editor (2022)** and available on **Windows, Linux and macOS**.
 
 ### Downloads
-→ [Latest version (v1.0.1)](https://github.com/Olaf758/NXHEX-Nexomon-Extinction-Save-Editor/releases)
+→ [Latest version (v1.0.1)](https://github.com/Olaf758/NEXHEX/releases)
 
 ### Screenshots
 
