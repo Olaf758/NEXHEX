@@ -15,35 +15,8 @@ NXHEX is a save editor built with **Avalonia UI**. It lets you easily modify eve
 - Modify current map and exact player coordinates
 - Fill the entire storage with every Nexomon in the game in 1 click
 
-**More complete than the old Synthlight editor (2022)** and available on **Windows, Linux and macOS**.
-
-### Downloads
-→ [Latest version (v1.0.1)](https://github.com/Olaf758/NEXHEX/releases)
-
-### Screenshots
-
-![Editing a Nexomon](Screenshots/Edit-Nexomon.png)
-![Editing inventory](Screenshots/Edit-Inventory.png)
-![Editing team](Screenshots/Edit-Team.png)
-![Editing storage](Screenshots/Edit-Storage.png)
-![Editing player](Screenshots/Edit-Player.png)
-
-### 🎮 Want a Save Editor for Another Game?
-
-NXHEX is currently focused on **Nexomon: Extinction**, but I'm open to developing save editors for other single-player games.
-
-**How to suggest a game:**
-- Open an **Issue** on this GitHub repository, or
-- Send an email to **secreator758@gmail.com**  
-  - Subject: Name of the game  
-  - Body: Game details (platform, link to Steam/Epic page, whether saves are local, etc.)
-
-**Important notes:**
-- Priority will be given to the most requested and interesting games.
-- If the game is paid, you will need to provide a game key/copy **if I accept** to work on it.
-- I'm also open to compensations via https://ko-fi.com/snowman758/donate .
-
-I'm looking forward to your suggestions!
+### How to use:
+To edit a nexomon, do a right-click and edit. To replace or put a Nexomon in any slot, right-Click and set. To delete, right-Click and delete.
 
 ### Compatibility
 NEXHEX works with the latest version of Nexomon and Nexomon: Extinction.
@@ -75,12 +48,39 @@ Your save files are located here:
 - Replace `[YOUR STEAM ID]` with your own Steam account ID (this number is different for every user).  
 - Each file is named `data-<number>.dat`for Nexomon : Extinction → the number indicates the save slot, and nexomon-save.dat for Nexomon .
 
-### How to use:
-To edit a nexomon, do a right-click and edit. To replace or put a Nexomon in any slot, right-Click and set. To delete, right-Click and delete.
 
 ### Warning
 **Always make a backup** of your save file before editing!
 I am not sure for the Nexomon 1 handeling, I need your feedback to correct it if needed.
+
+### Downloads
+→ [Latest version (v1.0.1)](https://github.com/Olaf758/NEXHEX/releases)
+
+### Screenshots
+
+![Editing a Nexomon](Screenshots/Edit-Nexomon.png)
+![Editing inventory](Screenshots/Edit-Inventory.png)
+![Editing team](Screenshots/Edit-Team.png)
+![Editing storage](Screenshots/Edit-Storage.png)
+![Editing player](Screenshots/Edit-Player.png)
+
+### 🎮 Want a Save Editor for Another Game?
+
+NXHEX is currently focused on **Nexomon: Extinction**, but I'm open to developing save editors for other single-player games.
+
+**How to suggest a game:**
+- Open an **Issue** on this GitHub repository, or
+- Send an email to **secreator758@gmail.com**  
+  - Subject: Name of the game  
+  - Body: Game details (platform, link to Steam/Epic page, whether saves are local, etc.)
+
+**Important notes:**
+- Priority will be given to the most requested and interesting games.
+- If the game is paid, you will need to provide a game key/copy **if I accept** to work on it.
+- I'm also open to compensations via https://ko-fi.com/snowman758/donate .
+
+I'm looking forward to your suggestions!
+
 
 ### ☕ Support the Project
 
