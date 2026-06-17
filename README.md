@@ -75,6 +75,9 @@ Your save files are located here:
 - Replace `[YOUR STEAM ID]` with your own Steam account ID (this number is different for every user).  
 - Each file is named `data-<number>.dat`for Nexomon : Extinction → the number indicates the save slot, and nexomon-save.dat for Nexomon .
 
+### How to use:
+To edit a nexomon, do a right-click and edit. To replace or put a Nexomon in any slot, right-Click and set. To delete, right-Click and delete.
+
 ### Warning
 **Always make a backup** of your save file before editing!
 
