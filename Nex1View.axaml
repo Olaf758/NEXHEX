@@ -1,0 +1,293 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:vm="using:NEXHEX"
+			 xmlns:consts="using:Nexomon1Model"
+			 x:Class="NEXHEX.Nex1View"
+			 x:DataType="vm:Nex1ViewModel"
+			 x:Name="NEX1">
+	<TabControl Margin="10" TabStripPlacement="Top" x:Name="MyTabControl">
+
+		<TabItem Header="Monster Editor">
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<StackPanel Spacing="20">
+					<StackPanel Spacing="4">
+
+						<!-- Actual Nexomon -->
+						<ComboBox ItemsSource="{Binding NexomonNames}"
+								  SelectedItem="{Binding ActualNexomonName}"
+								  FontSize="18"/>
+						<Border BorderBrush="#2196F3" BorderThickness="2"
+								CornerRadius="8"
+								Margin="0,10,0,10" Padding="10"
+								HorizontalAlignment="Left">
+							<Image Source="{Binding ActualNexomon.Content.Icon}"
+								   Stretch="Uniform"
+								   Width="100" Height="100"/>
+						</Border>
+						
+						<!-- Level -->
+						<StackPanel Orientation="Horizontal" Spacing="10">
+							<TextBlock Text="Level :" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+							<NumericUpDown Value="{Binding ActualNexomon.Content.level}"
+										   Minimum="1"
+										   Maximum="100"/>
+						</StackPanel>
+						<!-- MaxHP -->
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Max Hp : " VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock Text="{Binding ActualNexomon.Content.maxHP}" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="LightSkyBlue"/>
+						</StackPanel>
+						<!-- MaxStamina -->
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Max Stamina : " VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock Text="{Binding ActualNexomon.Content.maxMP}" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="LightSkyBlue"/>
+						</StackPanel>
+						<!-- Atk -->
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Atk : " VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock Text="{Binding ActualNexomon.Content.attack}" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="LightSkyBlue"/>
+						</StackPanel>
+						<!-- Def -->
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Def : " VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock Text="{Binding ActualNexomon.Content.defense}" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="LightSkyBlue"/>
+						</StackPanel>
+						<!-- Spd -->
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="Spd : " VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock Text="{Binding ActualNexomon.Content.speed}" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="LightSkyBlue"/>
+						</StackPanel>
+					</StackPanel>
+					<!-- Skills -->
+
+					<TextBlock Text="Skills :" VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+					<ItemsControl ItemsSource="{Binding ActualNexomon.Content.skills}">
+
+						<ItemsControl.ItemTemplate>
+							<DataTemplate x:DataType="{x:Type consts:Slot, x:TypeArguments=consts:Skill}">
+								<StackPanel Orientation ="Horizontal" Spacing="2">
+									<Image Source="{Binding Content.Icon}}"
+										   Width="50" Height="50"
+										   Stretch="Uniform"/>
+									<ComboBox ItemsSource="{Binding #NEX1.DataContext.Skills}"
+											  SelectedItem="{Binding Content}"
+											  VerticalAlignment="Center">
+										<ComboBox.ItemTemplate>
+											<DataTemplate x:DataType="consts:Skill">
+												<TextBlock Text="{Binding Name}"/>
+											</DataTemplate>
+										</ComboBox.ItemTemplate>
+									</ComboBox>
+								</StackPanel>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+					
+				</StackPanel>
+			</ScrollViewer>
+		</TabItem>
+
+		<!-- Inventory -->
+		<TabItem Header="Inventory">
+			<TabControl Margin="10"
+						TabStripPlacement="Top"
+						ItemsSource="{Binding ActualSave.inventory.ItemsByCategories}">
+
+				<TabControl.ItemTemplate>
+					<DataTemplate x:DataType ="consts:ItemCategory">
+						<TextBlock Text="{Binding Name}"/>
+					</DataTemplate>
+				</TabControl.ItemTemplate>
+
+				<TabControl.ContentTemplate>
+					<DataTemplate x:DataType ="consts:ItemCategory">
+						<Grid>
+
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+
+							<ListBox Grid.Row="0" ItemsSource="{Binding Items}"
+								 ScrollViewer.VerticalScrollBarVisibility="Auto"
+								 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+								<ListBox.ItemTemplate>
+									<DataTemplate x:DataType="consts:Item">
+										<StackPanel Orientation="Horizontal" Spacing="10">
+											<Image Source="{Binding Icon}" Width="24" Height="24"/>
+											<TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+											<NumericUpDown Value="{Binding Quantity}" Minimum="0" Maximum="{Binding MaxValue}"/>
+										</StackPanel>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+
+							<Button
+								Grid.Row="1"
+								Content="MaxAll"
+								Command="{Binding MaxAllCommand}"
+								Width="100" FontSize="18"/>
+						</Grid>
+					</DataTemplate>
+				</TabControl.ContentTemplate>
+			</TabControl>
+		</TabItem>
+
+		<!-- Team -->
+		<TabItem Header="Team">
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<ItemsControl x:Name="TeamPanel" ItemsSource="{Binding ActualSave.playerParty.Units}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<UniformGrid Rows="3" Columns="2"
+										 ColumnSpacing="2" RowSpacing="2"/>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+
+					<ItemsControl.ItemTemplate>
+						<DataTemplate x:DataType="{x:Type consts:Slot, x:TypeArguments=consts:Unit}">
+							<Border BorderBrush="#4CAF50" BorderThickness="2"
+									CornerRadius="10"
+									Margin="2" Padding="10"
+									Width="100" Height="100">
+								<Border.ContextMenu>
+									<ContextMenu >
+										<MenuItem Header="Edit"
+												  Command ="{Binding #NEX1.DataContext.Nex1SlotManagerUnit.EditCommand}"
+												  CommandParameter="{Binding .}"/>
+										<MenuItem Header="Set"
+												  Command ="{Binding #NEX1.DataContext.Nex1SlotManagerUnit.SetCommand}"
+												  CommandParameter="{Binding .}"/>
+										<MenuItem Header="Delete"
+												  Command ="{Binding #NEX1.DataContext.Nex1SlotManagerUnit.DeleteCommand}"
+												  CommandParameter="{Binding .}"/>
+									</ContextMenu>
+								</Border.ContextMenu>
+								<Image Source="{Binding Content.Icon}}"
+									   Width="72" Height="72"
+									   Stretch="Uniform"
+									   Margin="0,0,0,8"/>
+							</Border>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+		</TabItem>
+
+		<!-- Storage -->
+		<TabItem Header="Storage">
+
+			<ScrollViewer VerticalScrollBarVisibility="Visible">
+
+				<StackPanel Margin="10" Spacing="12">
+
+					
+					<ItemsControl x:Name="StoragePanel" ItemsSource="{Binding ActualSave.playerHatchery.Monsters}" HorizontalAlignment="Center">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<UniformGrid Columns="6"/>
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+
+						<ItemsControl.ItemTemplate>
+							<DataTemplate x:DataType="{x:Type consts:Slot, x:TypeArguments=consts:Unit}">
+								<Border BorderBrush="#888" BorderThickness="1"
+										CornerRadius="6"
+										Margin="2" Padding="6"
+										Width="100" Height="100">
+									<Border.ContextMenu>
+										<ContextMenu x:DataType="vm:ViewModel">
+											<MenuItem Header="Edit"
+													  Command ="{Binding #NEX1.DataContext.Nex1SlotManagerUnit.EditCommand}"
+													  CommandParameter="{Binding .}"/>
+											<MenuItem Header="Set"
+													  Command ="{Binding #NEX1.DataContext.Nex1SlotManagerUnit.SetCommand}"
+													  CommandParameter="{Binding .}"/>
+											<MenuItem Header="Delete"
+													  Command ="{Binding #NEX1.DataContext.Nex1SlotManagerUnit.DeleteCommand}"
+													  CommandParameter="{Binding .}"/>
+										</ContextMenu>
+									</Border.ContextMenu>
+
+									<Image Source="{Binding Content.Icon}}"
+										   Width="72" Height="72"
+										   Stretch="Uniform"/>
+								</Border>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</StackPanel>
+			</ScrollViewer>
+		</TabItem>
+
+		<!-- Player -->
+		<TabItem Header="Player">
+			<StackPanel Spacing="5" Margin="0,5,0,0">
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Name :" VerticalAlignment="Center" FontSize="16"/>
+					<TextBox Text="{Binding ActualSave.playerName, Mode=TwoWay}"
+							 FontSize="14"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Money :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.coins}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Diamonds :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.diamonds}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Golden Boxes :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.goldenBoxes}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Silver Boxes :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.silverBoxes}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Free Golden Boxes :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.freeGoldenBoxes}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Free Silver Boxes :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.freeSilverBoxes}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Golden Traps :" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.goldenTraps}"
+								   Minimum="0"
+								   Maximum="999999"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Actual Map ID (Be careful):" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.mapID}"
+								   Minimum="1"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="X Coord (Be careful):" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.playerX}"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Spacing="10">
+					<TextBlock Text="Y Coord (Be careful):" VerticalAlignment="Center" FontSize="16"/>
+					<NumericUpDown Value="{Binding ActualSave.playerY}"/>
+				</StackPanel>
+				<Button
+			Content="Get all nexomon in storage"
+			Command="{Binding GetThemAllCommand}"
+			FontSize="18"/>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+</UserControl>
