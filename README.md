@@ -1,4 +1,4 @@
-# NXHEX - Nexomon: Extinction Save Editor
+# NEXHEX - Nexomon and Nexomon: Extinction Save Editor
 
 **Complete and cross-platform save editor for Nexomon: Extinction**
 
@@ -46,31 +46,41 @@ NXHEX is currently focused on **Nexomon: Extinction**, but I'm open to developin
 I'm looking forward to your suggestions!
 
 ### Compatibility
-NXHEX works with the latest version of Nexomon: Extinction.
+NEXHEX works with the latest version of Nexomon and Nexomon: Extinction.
 
 ### Save File Location (Steam)
-NXHEX works on **Windows, Linux and macOS** (x64 + ARM64).
+NEXHEX works on **Windows, Linux and macOS** (x64 + ARM64).
 
 Your save files are located here:
 
-- **Windows**  
+- **Windows**
+  Nexomon : Extinction
   `C:\Program Files (x86)\Steam\userdata\[YOUR STEAM ID]\1196630\remote`
+  Nexomon 
+  C:\Program Files (x86)\Steam\userdata\[YOUR STEAM ID]\1191580\remote\
 
-- **Linux**  
-  `~/.steam/steam/userdata/[YOUR STEAM ID]/1196630/remote`
+- **Linux**
+   Nexomon : Extinction 
+  `~/.steam/steam/userdata/[YOUR STEAM ID]/1196630/remote
+  Nexomon
+  ~/.steam/steam/userdata/[YOUR STEAM ID]/1191580/remote
 
-- **macOS** (Intel & Apple Silicon / ARM)  
-  `~/Library/Application Support/Steam/userdata/[YOUR STEAM ID]/1196630\remote`
+- **macOS** (Intel & Apple Silicon / ARM)
+  Nexomon : Extinction 
+  ~/Library/Application Support/Steam/userdata/[YOUR STEAM ID]/1196630\remote`
+  Nexomon
+  
+  ~/Library/Application Support/Steam/userdata/[YOUR STEAM ID]/1191580\remote`
 
 - Replace `[YOUR STEAM ID]` with your own Steam account ID (this number is different for every user).  
-- Each file is named `data-<number>.dat` → the number indicates the save slot.
+- Each file is named `data-<number>.dat`for Nexomon : Extinction → the number indicates the save slot, and nexomon-save.dat for Nexomon .
 
 ### Warning
 **Always make a backup** of your save file before editing!
 
 ### ☕ Support the Project
 
-If NXHEX has saved you time or helped you enjoy Nexomon: Extinction even more, consider supporting its development!
+If NXHEX has saved you time or helped you enjoy Nexomon or Nexomon: Extinction even more, consider supporting its development!
 
 **Every donation is highly appreciated and helps me continue updating the editor and working on new features.**
 
