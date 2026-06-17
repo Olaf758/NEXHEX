@@ -80,6 +80,7 @@ To edit a nexomon, do a right-click and edit. To replace or put a Nexomon in any
 
 ### Warning
 **Always make a backup** of your save file before editing!
+I am not sure for the Nexomon 1 handeling, I need your feedback to correct it if needed.
 
 ### ☕ Support the Project
 
