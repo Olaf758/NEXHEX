@@ -54,7 +54,7 @@ Your save files are located here:
 I am not sure for the Nexomon 1 handeling, I need your feedback to correct it if needed.
 
 ### Downloads
-→ [Latest version (v1.0.1)](https://github.com/Olaf758/NEXHEX/releases)
+→ [Latest version (v1.1)](https://github.com/Olaf758/NEXHEX/releases)
 
 ### Screenshots
 
